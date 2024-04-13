@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="1080.0" prefWidth="1920.0" styleClass="main-background" stylesheets="@App.css"
+            xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="nl.picobello.basecamp.battleship.BattleShipControllerPVP">
+    <right>
+        <VBox prefHeight="924.0" prefWidth="419.0" styleClass="bar-right" stylesheets="@App.css"
+              BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="57.0" prefWidth="343.0" styleClass="panel-right-hbox" stylesheets="@App.css">
+                    <children>
+                        <Label prefHeight="45.0" prefWidth="432.0" text="Online Players" textFill="WHITE">
+                            <font>
+                                <Font size="24.0"/>
+                            </font>
+                            <style>
+                                -fx-font-weight: bold;
+                            </style>
+                            <padding>
+                                <Insets left="20.0" top="10.0"/>
+                            </padding>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+                <HBox prefHeight="42.0" prefWidth="343.0">
+                    <children>
+                        <TextField fx:id="challengeNameField" prefHeight="29.0" prefWidth="263.0"
+                                   promptText="Player Name">
+                            <HBox.margin>
+                                <Insets left="10.0" top="5.0"/>
+                            </HBox.margin>
+                        </TextField>
+                        <Region prefHeight="57.0" prefWidth="12.0" HBox.hgrow="ALWAYS"/>
+                        <Button mnemonicParsing="false" onAction="#challengePlayer" text="Challenge Player"
+                                textFill="WHITE">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <HBox.margin>
+                                <Insets right="10.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+                <Region prefHeight="12.0" prefWidth="343.0"/>
+                <Label fx:id="dataLabel" text="" textFill="WHITE">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                    <style>
+                        -fx-font-weight: bold;
+                    </style>
+                    <padding>
+                        <Insets left="20.0"/>
+                    </padding>
+                </Label>
+            </children>
+        </VBox>
+    </right>
+    <left>
+        <VBox fx:id="chatbox" prefHeight="835.0" prefWidth="341.0" styleClass="bar-left" stylesheets="@App.css"
+              BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="50.0" left="30.0" right="50.0" top="50.0"/>
+            </BorderPane.margin>
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jouw bord" textAlignment="CENTER"
+                      wrappingWidth="340.7294921875">
+                    <font>
+                        <Font name="System Bold" size="20.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets top="5.0"/>
+                    </VBox.margin>
+                </Text>
+
+                <Text fx:id="shipsNotification" strokeType="OUTSIDE" strokeWidth="0.0" text="Please place ship: 2" textAlignment="CENTER"
+                      wrappingWidth="340.7294921875">
+                    <font>
+                        <Font name="System" size="18.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets top="5.0"/>
+                    </VBox.margin>
+                </Text>
+
+                <GridPane id="grid" fx:id="grid" alignment="BOTTOM_RIGHT" gridLinesVisible="true" maxHeight="-Infinity"
+                          maxWidth="-Infinity" prefHeight="350.0" onMouseClicked="#boatButtonClick">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </GridPane>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Spel log" textAlignment="CENTER"
+                      wrappingWidth="340.7294921875">
+                    <font>
+                        <Font name="System Bold" size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="log" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="320.7294921875"
+                      VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </Text>
+            </children>
+        </VBox>
+    </left>
+    <top>
+        <HBox prefHeight="144.0" prefWidth="1920.0" styleClass="bar-top" stylesheets="@App.css">
+            <children>
+                <Text fx:id="state" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"
+                      textAlignment="CENTER" wrappingWidth="1517.09375" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="95.0"/>
+                    </font>
+                </Text>
+                <Region prefHeight="144.0" prefWidth="1104.0" styleClass="bar-top-region" stylesheets="@App.css"
+                        HBox.hgrow="ALWAYS"/>
+                <ImageView fitHeight="124.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                           styleClass="images">
+                    <image>
+                        <Image url="@images/User_Icon.png"/>
+                    </image>
+                    <HBox.margin>
+                        <Insets right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </ImageView>
+                <VBox prefHeight="144.0" prefWidth="123.0">
+                    <children>
+                        <Text fx:id="userLabel" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Username"
+                              wrappingWidth="186.13671875">
+                            <font>
+                                <Font size="24.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets top="40.0"/>
+                            </VBox.margin>
+                        </Text>
+                        <Text fill="WHITE" layoutX="10.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Status" wrappingWidth="110.13671875">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Text>
+                        <HBox alignment="BASELINE_LEFT" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <Button alignment="CENTER" minWidth="0.0" mnemonicParsing="false" onAction="#logout"
+                                        prefHeight="25.0" prefWidth="86.0" text="Logout" textFill="WHITE">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" right="10.0" top="10.0"/>
+                                    </HBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchGame"
+                                        text="Switch Game" textFill="WHITE">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                    <HBox.margin>
+                        <Insets right="84.0"/>
+                    </HBox.margin>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1125.0"
+              BorderPane.alignment="CENTER">
+            <children>
+                <GridPane id="grid" fx:id="board" alignment="BOTTOM_RIGHT" gridLinesVisible="true" maxHeight="-Infinity"
+                          maxWidth="-Infinity" prefHeight="592.0" prefWidth="543.0" onMouseClicked="#buttonClick">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                </GridPane>
+                <VBox fx:id="chatbox1" alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity"
+                      prefHeight="582.0" prefWidth="286.0" styleClass="bar-left" stylesheets="@App.css">
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets left="50.0"/>
+                    </HBox.margin>
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#debugPane" text="Button"/>
+                        <HBox prefHeight="42.0" prefWidth="343.0">
+                            <children>
+                                <TextField fx:id="debugCommand" prefHeight="29.0" prefWidth="207.0" promptText="Debug">
+                                    <HBox.margin>
+                                        <Insets left="10.0" top="5.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <Region prefHeight="57.0" prefWidth="12.0" HBox.hgrow="ALWAYS"/>
+                                <Button mnemonicParsing="false" onAction="#debugSendCommand" text="Send"
+                                        textFill="WHITE">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                    <HBox.margin>
+                                        <Insets right="10.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </center>
+</BorderPane>

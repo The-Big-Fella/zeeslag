@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="1080.0" prefWidth="1920.0" styleClass="main-background" stylesheets="@App.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.picobello.basecamp.shared.GameChoiceController">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="1124.0" layoutY="399.0" mnemonicParsing="false" onAction="#ticTacToe" text="╳ Tic Tac Toe ○" textAlignment="CENTER">
+               <font>
+                  <Font size="90.0" />
+               </font>
+            </Button>
+            <Button layoutX="172.0" layoutY="399.0" mnemonicParsing="false" onAction="#battleShip" text="⛴ Zeeslag ⚓ ">
+               <font>
+                  <Font size="90.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </center>
+   <top>
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Kies jouw spel" textAlignment="CENTER" wrappingWidth="2041.533203125" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Calibri Bold" size="125.0" />
+         </font>
+      </Text>
+   </top>
+</BorderPane>
